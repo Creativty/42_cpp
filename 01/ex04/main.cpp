@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 14:10:39 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/23 14:33:37 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/12/23 15:09:57 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	string_replace_all(std::string& str, std::string pattern, std::string subst
 
 int	main(const int argc, const char **argv) {
 	if (argc != 4) {
-		std::cout << "sez is a recreation of sed for manipulating text streams" << std::endl;
+		std::cout << argv[0] << " is a recreation of sed for manipulating text streams" << std::endl;
 		std::cout << "Usage:" << std::endl;
 		std::cout << "\t" << argv[0] << " <filename> <pattern> <substitution>" << std::endl;
 		return (1);
