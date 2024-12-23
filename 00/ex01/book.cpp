@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 19:15:39 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/23 10:42:11 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/12/23 13:41:33 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ std::string ask(const char *prompt, bool is_retry = false) {
 void	book_add(PhoneBook &book) {
 	std::string first_name = ask("- First name"), last_name = ask("- Last name");
 	std::string nickname = ask("- Nickname"), phone = ask("- Phone number");
-	std::string secret = ask("- Secret (Your darkest one!)");
+	std::string secret = ask("- Secret (Darkest one!)");
 	Contact		contact(first_name, last_name, nickname, phone, secret);
 	if (!std::cin.eof()) {
 		int index = book.addContact(contact);
@@ -67,13 +67,17 @@ void	book_contact_print_header(void) {
 }
 
 void	book_search(PhoneBook &book) {
+	bool	one_visible = false;
 	book_contact_print_header();
 	for (int i = 0; i < 8; i++) {
 		Contact	c = book.getContact(i);
 		if (!c.is_visible)
 			continue ;
+		one_visible = true;
 		book_contact_print(i, c);
 	}
+	if (!one_visible)
+		return ;
 	bool				is_digits = true;
 	std::string			str = ask(">> Contact index");
 	if (std::cin.eof())
@@ -93,7 +97,7 @@ void	book_search(PhoneBook &book) {
 		std::cout << "    > Last name: " << c.last_name << std::endl;
 		std::cout << "    > Nickname: " << c.nickname << std::endl;
 		std::cout << "    > Phone number: " << c.phone << std::endl;
-		std::cout << "    > Your darkest secret: " << c.secret << std::endl;
+		std::cout << "    > Darkest secret: " << c.secret << std::endl;
 	} else {
 		std::cout << "  > there is no contact at index " << idx << std::endl;
 	}
