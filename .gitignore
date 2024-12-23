@@ -3,4 +3,8 @@
 00/ex02/bank
 01/ex00/zombz
 01/ex01/hordz
+01/ex02/stringz
+01/ex03/violenz
+01/ex04/sez
 **/*.o
+**/tags

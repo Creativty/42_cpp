@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/23 12:00:29 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/23 13:37:31 by aindjare         ###   ########.fr       */
+/*   Created: 2024/12/23 13:45:25 by aindjare          #+#    #+#             */
+/*   Updated: 2024/12/23 13:55:12 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-#include <string>
+#include <iostream>
+#include "HumanA.hpp"
 
-class Zombie {
-public:
-	Zombie();
-	Zombie(std::string name);
-	~Zombie();
+HumanA::HumanA(std::string name, Weapon& weapon): weapon(weapon), name(name) {};
 
-	void	announce(void);
-	void	setName(std::string name);
-public:
-	std::string	name;
-};
-
-Zombie	*zombieHorde(int N, std::string name);
-#endif
+void	HumanA::attack(void) {
+	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+}

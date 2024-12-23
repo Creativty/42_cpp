@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:00:27 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/23 12:35:33 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/12/23 14:11:07 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Zombie::Zombie(std::string name) {
 }
 
 Zombie::~Zombie() {
-	std::cerr << "[debug] :: destructuring " << name << std::endl;
+	std::cout << "[debug] :: destructuring " << name << std::endl;
 }
 
 void	Zombie::announce(void) {
