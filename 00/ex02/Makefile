@@ -6,13 +6,13 @@
 #    By: aindjare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/21 18:49:55 by aindjare          #+#    #+#              #
-#    Updated: 2024/12/23 10:45:15 by aindjare         ###   ########.fr        #
+#    Updated: 2024/12/23 10:45:02 by aindjare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX			:=	g++
 CXXFLAGS	:=	-std=c++98 -Wall -Wextra -Werror -g
-NAME		:=	book
+NAME		:=	bank
 SOURCES		:=	$(wildcard *.cpp)
 OBJECTS		:=	$(SOURCES:%.cpp=%.o)
 
