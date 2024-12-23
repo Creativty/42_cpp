@@ -6,13 +6,13 @@
 #    By: aindjare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/21 18:49:55 by aindjare          #+#    #+#              #
-#    Updated: 2024/12/23 11:55:31 by aindjare         ###   ########.fr        #
+#    Updated: 2024/12/23 12:32:48 by aindjare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX			:=	g++
 CXXFLAGS	:=	-std=c++98 -Wall -Wextra -Werror -g
-NAME		:=	megaphone
+NAME		:=	hordz
 SOURCES		:=	$(wildcard *.cpp)
 OBJECTS		:=	$(SOURCES:%.cpp=%.o)
 
