@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 08:50:25 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/30 13:05:12 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:12:25 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,5 +173,27 @@ int main( void ) {
 	test(64.4f, 64.4f, OP_EQ);
 	test(64.4f, 2.0f, OP_NEQ);
 	test(64.4f, 64.4f, OP_NEQ);
+	std::cout << "----------------    Greater   ----------------" << std::endl;
+	test(0.0f, 64.4f, OP_GT);
+	test(64.4f, 64.4f, OP_GT);
+	test(64.4f, 0.4f, OP_GT);
+	test(64.4f, 2.0f, OP_GTE);
+	test(64.4f, 64.4f, OP_GTE);
+	test(64.4f, 0.4f, OP_GTE);
+	std::cout << "----------------     Lower   ----------------" << std::endl;
+	test(0.0f, 64.4f, OP_LT);
+	test(64.4f, 64.4f, OP_LT);
+	test(64.4f, 0.4f, OP_LT);
+	test(64.4f, 2.0f, OP_LTE);
+	test(64.4f, 64.4f, OP_LTE);
+	test(64.4f, 0.4f, OP_LTE);
+	std::cout << "----------------      Max   ----------------" << std::endl;
+	test(0.0f, 2.2f, OP_MAX);
+	test(64.4f, 64.4f, OP_MAX);
+	test(64.4f, 0.4f, OP_MAX);
+	std::cout << "----------------      Min   ----------------" << std::endl;
+	test(64.4f, 2.0f, OP_MIN);
+	test(64.4f, 64.4f, OP_MIN);
+	test(64.4f, 0.4f, OP_MIN);
 	return 0;
 }

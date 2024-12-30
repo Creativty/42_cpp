@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 08:52:15 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/30 13:04:18 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:21:16 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int		Fixed::getRawBits(void) const {
 void	Fixed::setRawBits(int const raw) {
 	this->value = raw;
 }
-int		Fixed::toInt(void) const {
-	return (getRawBits() << n_frac_bits);
-}
 float	Fixed::toFloat(void) const {
 	return ((float)getRawBits() / (float)(1 << n_frac_bits));
+}
+int		Fixed::toInt(void) const {
+	return ((int)this->toFloat());
 }
 
 Fixed& Fixed::max(Fixed& lhs, Fixed& rhs) {

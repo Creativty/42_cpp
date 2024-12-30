@@ -6,13 +6,13 @@
 #    By: aindjare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 15:37:18 by aindjare          #+#    #+#              #
-#    Updated: 2024/12/23 15:37:25 by aindjare         ###   ########.fr        #
+#    Updated: 2024/12/30 13:13:14 by aindjare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX			:=	g++
 CXXFLAGS	:=	-std=c++98 -Wall -Wextra -Werror -g
-NAME		:=	orthodox
+NAME		:=	fixed_operators
 SOURCES		:=	$(wildcard *.cpp)
 OBJECTS		:=	$(SOURCES:%.cpp=%.o)
 

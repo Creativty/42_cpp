@@ -10,5 +10,6 @@
 01/ex06/harlFilter
 02/ex00/orthodox
 02/ex01/orthodox_useful
+02/ex02/fixed_operators
 **/*.o
 **/tags
