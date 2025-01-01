@@ -11,5 +11,7 @@
 02/ex00/orthodox
 02/ex01/orthodox_useful
 02/ex02/fixed_operators
+03/ex00/ClapTrap
+03/ex01/ScavTrap
 **/*.o
 **/tags
