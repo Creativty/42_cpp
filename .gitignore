@@ -17,5 +17,6 @@
 03/ex03/DiamondTrap
 04/ex00/Animal
 04/ex01/Brain
+04/ex02/Abstract
 **/*.o
 **/tags

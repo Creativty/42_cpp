@@ -6,13 +6,13 @@
 #    By: aindjare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 15:37:18 by aindjare          #+#    #+#              #
-#    Updated: 2025/01/01 13:25:25 by aindjare         ###   ########.fr        #
+#    Updated: 2025/01/01 14:11:47 by aindjare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX			:=	c++
 CXXFLAGS	:=	-std=c++98 -Wall -Wextra -Werror -g
-NAME		:=	Animal
+NAME		:=	Abstract
 SOURCES		:=	$(wildcard *.cpp)
 OBJECTS		:=	$(SOURCES:%.cpp=%.o)
 
