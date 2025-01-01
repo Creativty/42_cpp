@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 09:07:58 by aindjare          #+#    #+#             */
-/*   Updated: 2025/01/01 09:28:30 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/01/01 09:35:23 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,22 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(): name("unnamed"), attack_damage(0), energy_points(10),
-						hit_points(10) { }
+						hit_points(10) {
+	std::cout << "ClapTrap :: constructor default" << std::endl;
+}
 ClapTrap::ClapTrap(std::string name):	name(name), attack_damage(0),
-						energy_points(10), hit_points(10) { }
+						energy_points(10), hit_points(10) {
+	std::cout << "ClapTrap :: constructor name" << std::endl;
+}
 ClapTrap::ClapTrap(const ClapTrap& o):	name(o.name),
 										attack_damage(o.attack_damage),
 										energy_points(o.energy_points),
-										hit_points(o.hit_points) { }
-ClapTrap::~ClapTrap() { }
+										hit_points(o.hit_points) {
+	std::cout << "ClapTrap :: constructor copy" << std::endl;
+}
+ClapTrap::~ClapTrap() {
+	std::cout << "ClapTrap :: destructor" << std::endl;
+}
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& o) {
 	this->name = o.name;
