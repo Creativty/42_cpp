@@ -6,10 +6,9 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 09:38:02 by aindjare          #+#    #+#             */
-/*   Updated: 2025/01/01 10:54:13 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/01/01 10:53:27 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <iostream>
 #include "ScavTrap.hpp"
 

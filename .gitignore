@@ -13,5 +13,6 @@
 02/ex02/fixed_operators
 03/ex00/ClapTrap
 03/ex01/ScavTrap
+03/ex02/FragTrap
 **/*.o
 **/tags
