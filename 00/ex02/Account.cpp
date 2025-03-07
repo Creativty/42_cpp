@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 10:46:14 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/23 11:37:13 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:51:06 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
 void	Account::_displayTimestamp(void) {
-	// std::time_t	t  = std::time(0);
-	// std::tm*	tm = std::localtime(&t);
+	std::time_t	t  = std::time(0);
+	std::tm*	tm = std::localtime(&t);
 
 	std::cout << "[";
-	std::cout << "1992"; // 1900 + tm->tm_year;
-	std::cout << "01";   // std::setfill('0') << std::setw(2) << 0000 + tm->tm_mon;
-	std::cout << "04";   // std::setfill('0') << std::setw(2) << 0000 + tm->tm_mday;
+	std::cout << 1900 + tm->tm_year; // "1992"; 
+	std::cout << std::setfill('0') << std::setw(2) << 0000 + tm->tm_mon; // "01";
+	std::cout << std::setfill('0') << std::setw(2) << 0000 + tm->tm_mday; // "04";   
 	std::cout << "_";
-	std::cout << "09";   // std::setfill('0') << std::setw(2) << 0000 + tm->tm_hour;
-	std::cout << "15";   // std::setfill('0') << std::setw(2) << 0000 + tm->tm_min;
-	std::cout << "32";   // std::setfill('0') << std::setw(2) << 0000 + tm->tm_sec;
+	std::cout << std::setfill('0') << std::setw(2) << 0000 + tm->tm_hour; // "09";   
+	std::cout << std::setfill('0') << std::setw(2) << 0000 + tm->tm_min; // "15";   
+	std::cout << std::setfill('0') << std::setw(2) << 0000 + tm->tm_sec; // "32";   
 	std::cout << "]";
 }
 
