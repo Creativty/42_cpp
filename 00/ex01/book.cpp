@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 19:15:39 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/23 13:41:33 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:08:52 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,9 @@ int	main(void) {
 
 		if (cmd == "ADD") book_add(book);
 		if (cmd == "SEARCH") book_search(book);
-		run = !(cmd == "EXIT" || std::cin.eof() == true);
 		if (std::cin.eof())
 			std::cout << std::endl;
+		run = !(cmd == "EXIT" || std::cin.eof());
 	}
 	return (0);
 }
