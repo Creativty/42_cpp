@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 11:42:29 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/23 12:08:02 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:50:06 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 class Zombie {
 public:
-	Zombie();
 	Zombie(std::string name);
 	~Zombie();
 

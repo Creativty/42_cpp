@@ -6,17 +6,13 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 11:44:54 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/23 14:11:13 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:50:12 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 #include "Zombie.hpp"
-
-Zombie::Zombie() {
-	name = std::string("unnamed");
-}
 
 Zombie::Zombie(std::string name) {
 	this->name = name;
