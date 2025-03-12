@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:00:48 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/23 12:21:51 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:59:00 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,5 @@ int	main(void) {
 	Zombie	*horde = zombieHorde(N, std::string("Gillian"));
 	for (int i = 0; i < N; i++)
 		horde[i].announce();
-
 	delete[] horde;
 }
