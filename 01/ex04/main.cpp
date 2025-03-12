@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 14:10:39 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/23 15:09:57 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/03/12 14:23:02 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	string_replace_all(std::string& str, std::string pattern, std::string subst
 	if (str.empty())
 		return ;
 	std::size_t	i = 0;
-	for (; (i = str.find(pattern, i)) != std::string::npos;) {
+	while ((i = str.find(pattern, i)) != std::string::npos) {
 		str.erase(i, pattern.length());
 		str.insert(i, substitution);
 		i += substitution.length();
@@ -26,9 +26,9 @@ void	string_replace_all(std::string& str, std::string pattern, std::string subst
 
 int	main(const int argc, const char **argv) {
 	if (argc != 4) {
-		std::cout << argv[0] << " is a recreation of sed for manipulating text streams" << std::endl;
-		std::cout << "Usage:" << std::endl;
-		std::cout << "\t" << argv[0] << " <filename> <pattern> <substitution>" << std::endl;
+		std::cerr << argv[0] << " is a recreation of sed for manipulating text streams" << std::endl;
+		std::cerr << "Usage:" << std::endl;
+		std::cerr << "\t" << argv[0] << " <filename> <pattern> <substitution>" << std::endl;
 		return (1);
 	}
 	std::string		filename_in(argv[1]), pattern(argv[2]), substitution(argv[3]);
@@ -36,24 +36,24 @@ int	main(const int argc, const char **argv) {
 	std::string		filename_out(filename_in + filename_ext);
 
 	if (pattern.empty()) {
-		std::cout << "error: replacement pattern cannot be empty." << std::endl;
+		std::cerr << "error: replacement pattern cannot be empty." << std::endl;
 		return (2);
 	}
 
-	std::string		line;
 	std::ifstream	file_in(filename_in.c_str());
 	if (!file_in.is_open()) {
-		std::cout << "error: file " << filename_in << " doesn't exist." << std::endl;
+		std::cerr << "error: file " << filename_in << " doesn't exist." << std::endl;
 		return (4);
 	}
-	std::ofstream	file_out(filename_out.c_str());
 
-	for (; getline(file_in, line); ) {
+	std::string		line;
+	std::ofstream	file_out(filename_out.c_str());
+	while (getline(file_in, line)) {
 		string_replace_all(line, pattern, substitution);
 		file_out << line << std::endl;
 	}
 	file_in.close();
 	file_out.close();
-	std::cout << "done writing output to " << filename_out << std::endl;
+	std::cout << argv[0] << " is done writing output to " << filename_out << std::endl;
 	return (0);
 }
