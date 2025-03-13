@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 08:52:04 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/30 09:46:19 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:18:20 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ public:
 	static	Fixed& min(Fixed& lhs, Fixed& rhs);
 	static	const Fixed& max(const Fixed& lhs, const Fixed& rhs);
 	static	const Fixed& min(const Fixed& lhs, const Fixed& rhs);
+
 public:
 	Fixed();
 	~Fixed();
@@ -53,6 +54,7 @@ public:
 	Fixed	operator--(int);
 
 	friend std::ostream&	operator<<(std::ostream &stream, const Fixed& f);
+
 private:
 	static int	floatToBits(const float value);
 

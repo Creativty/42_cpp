@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 08:52:15 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/30 13:21:16 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:32:55 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ Fixed	Fixed::operator*(const Fixed& rhs) const {
 	return (Fixed(this->toFloat() * rhs.toFloat()));
 }
 Fixed	Fixed::operator/(const Fixed& rhs) const {
+	if (rhs.toFloat() == 0.0f)
+		throw "division by zero";
 	return (Fixed(this->toFloat() / rhs.toFloat()));
 }
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   operators.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 08:50:25 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/30 13:12:25 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:36:43 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,13 +143,14 @@ int main( void ) {
 	Fixed a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 	std::cout << "----------------    Standard   ----------------" << std::endl;
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << "   a   :: " << a << std::endl;
+	std::cout << " ++a   :: " << ++a << std::endl;
+	std::cout << "   a   :: " << a << std::endl;
+	std::cout << "   a++ :: " << a++ << std::endl;
+	std::cout << "   a   :: " << a << std::endl;
+	std::cout << "   b   :: " << b << std::endl;
+	std::cout << "  max  :: " << Fixed::max(a, b) << std::endl;
+	std::cout << "  min  :: " << Fixed::min(a, b) << std::endl;
 	std::cout << "----------------    Addition    ----------------" << std::endl;
 	test(32.0f, 64.0f, OP_ADD);
 	test(32.0f, 64.0f, OP_ADD);
@@ -164,6 +165,11 @@ int main( void ) {
 	test(1.0f, 64.4f, OP_MUL);
 	test(2.0f, 64.4f, OP_MUL);
 	std::cout << "----------------    Division   ----------------" << std::endl;
+	try {
+		test(2.0f, 0.0f, OP_DIV);
+	} catch (const char *reason) {
+		std::cerr << "test failed because of `" << reason << "`." << std::endl;
+	}
 	test(0.0f, 64.4f, OP_DIV);
 	test(64.4f, 1.0f, OP_DIV);
 	test(64.4f, 2.0f, OP_DIV);
