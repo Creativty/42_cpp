@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 18:16:49 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/30 13:21:04 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:07:49 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 Fixed::Fixed() : value(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
-Fixed::Fixed(const Fixed &a) : value(a.value) {
+
+Fixed::Fixed(const Fixed &a) {
 	std::cout << "Copy constructor called" << std::endl;
+	*this = a;
 }
+
 Fixed::Fixed(const int value) {
 	std::cout << "Int constructor called" << std::endl;
 	this->value = value << n_frac_bits;
