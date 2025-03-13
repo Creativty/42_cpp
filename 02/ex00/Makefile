@@ -6,7 +6,7 @@
 #    By: aindjare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 15:37:18 by aindjare          #+#    #+#              #
-#    Updated: 2024/12/23 15:37:25 by aindjare         ###   ########.fr        #
+#    Updated: 2025/03/13 09:22:54 by aindjare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,13 @@ NAME		:=	orthodox
 SOURCES		:=	$(wildcard *.cpp)
 OBJECTS		:=	$(SOURCES:%.cpp=%.o)
 
+# Linker
+CC			=	$(CXX)
+CFLAGS		=	$(CXXFLAGS)
+
 all:	 $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(CXX) -o $(NAME) $(OBJECTS)
 
 fclean:	 clean
 	$(RM) $(NAME)

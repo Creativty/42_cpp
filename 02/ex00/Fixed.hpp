@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 15:39:04 by aindjare          #+#    #+#             */
-/*   Updated: 2024/12/23 15:44:03 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:01:08 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 
 class Fixed {
 public:
-	Fixed(); // Default constructor
-	~Fixed(); // Destructor
-	Fixed(const Fixed &a); // Copy constructor
-	Fixed&	operator=(const Fixed &a); // Copy assignment
+	Fixed();
+	~Fixed();
+	Fixed(const Fixed &a);
+	Fixed&	operator=(const Fixed &a); 
 
-	int		getRawBits(void);
+	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 private:
 	int					value;
 	static const int	n_frac_bits = 8;
 };
-
 #endif
