@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 16:14:33 by aindjare          #+#    #+#             */
-/*   Updated: 2025/06/22 16:41:41 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/06/22 17:11:35 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
 	void				incrementGrade(void);
 	void				decrementGrade(void);
 
-	void				checkGrade(int delta);
+	void				checkGrade(int delta) const;
 
 	class GradeTooHighException: public std::exception {
 	public:

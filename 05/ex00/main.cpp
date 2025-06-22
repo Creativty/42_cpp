@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 16:13:04 by aindjare          #+#    #+#             */
-/*   Updated: 2025/06/22 16:48:29 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/06/22 17:15:21 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 
 void	test_case_constructor(std::string name, unsigned int grade, const char *validity) {
 	try {
-
-		// return (stream << "Bureacrat { " << instance.getName() << ", " << instance.getGrade() << " }");
 		std::cout << "Constructing		Bureaucrat { \"" << name << "\", " << grade << " }\t:: got ";
 		Bureaucrat	instance(name, grade);
 		std::cout << "valid " << instance;
@@ -64,6 +62,17 @@ int	main(void) {
 
 	test_case_constructor("Jenny", 200, "invalid (Grade too low)");
 	std::cout << std::endl;
+
+	Bureaucrat	a("Joe", 23);
+	std::cout << a << std::endl;
+
+	Bureaucrat	b(a);
+	b.decrementGrade();
+	std::cout << b << std::endl;
+
+	Bureaucrat	c = b;
+	c.decrementGrade();
+	std::cout << c << std::endl;
 
 	return (0);
 }

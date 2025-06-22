@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 16:14:30 by aindjare          #+#    #+#             */
-/*   Updated: 2025/06/22 17:01:47 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/06/22 17:15:25 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ const std::string&	Bureaucrat::getName(void) const {
 	return (this->name);
 }
 
-void				Bureaucrat::checkGrade(int delta = 0) {
+void				Bureaucrat::checkGrade(int delta = 0) const {
 	if ((int)this->grade + delta > 150) throw Bureaucrat::GradeTooLowException();
 	if ((int)this->grade + delta <   1) throw Bureaucrat::GradeTooHighException();
 }
@@ -42,6 +42,11 @@ Bureaucrat::Bureaucrat(const Bureaucrat& instance): name(instance.getName()), gr
 
 Bureaucrat::~Bureaucrat() { }
 
+Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& instance) {
+	this->grade = instance.getGrade();
+	return (*this);
+}
+
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
 	return ("Grade too high");
 };
@@ -51,5 +56,5 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
 };
 
 std::ostream&	operator<<(std::ostream& stream, const Bureaucrat& instance) {
-	return (stream << "Bureacrat { \"" << instance.getName() << "\", " << instance.getGrade() << " }");
+	return (stream << "Bureaucrat { \"" << instance.getName() << "\", " << instance.getGrade() << " }");
 }
