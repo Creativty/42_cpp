@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 16:14:30 by aindjare          #+#    #+#             */
-/*   Updated: 2025/06/22 16:45:15 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/06/22 17:01:47 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ const char *Bureaucrat::GradeTooHighException::what() const throw() {
 };
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
-	return ("Grade too high");
+	return ("Grade too low");
 };
 
 std::ostream&	operator<<(std::ostream& stream, const Bureaucrat& instance) {
