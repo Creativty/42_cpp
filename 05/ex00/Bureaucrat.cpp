@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 16:14:30 by aindjare          #+#    #+#             */
-/*   Updated: 2025/06/22 17:15:25 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/06/22 17:20:10 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void				Bureaucrat::checkGrade(int delta = 0) const {
 	if ((int)this->grade + delta <   1) throw Bureaucrat::GradeTooHighException();
 }
 
-void				Bureaucrat::incrementGrade(void) {
-	this->checkGrade(+1);
-	this->grade++;
-}
-
-void				Bureaucrat::decrementGrade(void) {
+void				Bureaucrat::promoteGrade(void) {
 	this->checkGrade(-1);
 	this->grade--;
+}
+
+void				Bureaucrat::demoteGrade(void) {
+	this->checkGrade(+1);
+	this->grade++;
 }
 
 

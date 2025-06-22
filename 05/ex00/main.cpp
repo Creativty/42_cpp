@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 16:13:04 by aindjare          #+#    #+#             */
-/*   Updated: 2025/06/22 17:15:21 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/06/22 17:24:48 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	test_case_constructor(std::string name, unsigned int grade, const char *validity) {
 	try {
-		std::cout << "Constructing		Bureaucrat { \"" << name << "\", " << grade << " }\t:: got ";
+		std::cout << "Constructing	Bureaucrat { \"" << name << "\", " << grade << " }\t:: got ";
 		Bureaucrat	instance(name, grade);
 		std::cout << "valid " << instance;
 	} catch (std::exception& e) {
@@ -29,12 +29,12 @@ void	test_case_operation(std::string name, unsigned int grade, const char *valid
 	try {
 		Bureaucrat	instance(name, grade);
 
-		if (is_increment)	std::cout << "Incrementing (+1)	";
-		else				std::cout << "Decrementing (-1)	";
+		if (is_increment)	std::cout << "Demoting  +1	";
+		else				std::cout << "Promoting -1	";
 		std::cout << "Bureaucrat { \"" << name << "\", " << grade << " }\t:: got ";
 
-		if (is_increment)	instance.incrementGrade();
-		else				instance.decrementGrade();
+		if (is_increment)	instance.demoteGrade();
+		else				instance.promoteGrade();
 		std::cout << "valid " << instance;
 	} catch (std::exception& e) {
 		std::cout << "invalid (" << e.what() << ")";
@@ -57,22 +57,23 @@ int	main(void) {
 	std::cout << std::endl;
 
 	test_case_constructor("Johnson", 150, "valid");
-	test_case_operation("Johnson", 150, "invalid", true);
+	test_case_operation("Johnson", 150, "invalid (Grade too low)", true);
 	std::cout << std::endl;
 
 	test_case_constructor("Jenny", 200, "invalid (Grade too low)");
 	std::cout << std::endl;
 
 	Bureaucrat	a("Joe", 23);
-	std::cout << a << std::endl;
 
 	Bureaucrat	b(a);
-	b.decrementGrade();
-	std::cout << b << std::endl;
+	b.demoteGrade();
 
-	Bureaucrat	c = b;
-	c.decrementGrade();
-	std::cout << c << std::endl;
+	Bureaucrat	c = a;
+	c.promoteGrade();
+
+	std::cout << "Bureaucrat a = " << a << std::endl;
+	std::cout << "Bureaucrat b = " << b << std::endl;
+	std::cout << "Bureaucrat c = " << c << std::endl;
 
 	return (0);
 }
