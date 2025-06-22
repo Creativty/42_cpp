@@ -5,29 +5,28 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aindjare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/02 15:58:25 by aindjare          #+#    #+#              #
-#    Updated: 2025/06/02 15:58:27 by aindjare         ###   ########.fr        #
+#    Created: 2025/06/22 16:08:33 by aindjare          #+#    #+#              #
+#    Updated: 2025/06/22 16:16:40 by aindjare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+CC			:=	c++
 CXX			:=	c++
-CXXFLAGS	:=	-std=c++98 -Wall -Wextra -Werror -g
-NAME		:=	Bureaucrat
+CXXFLAGS	:=	-std=c++98 -Wall -Wextra -Wconversion -Werror -g
+
+NAME		:=	bin
 SOURCES		:=	$(wildcard *.cpp)
-OBJECTS		:=	$(SOURCES:%.cpp=%.o)
+OBJECTS		:=	$(SOURCES:.cpp=.o)
 
-all:	 $(NAME)
-
-$(NAME): $(OBJECTS)
-	$(CXX) -o $(NAME) $(OBJECTS)
-
-fclean:	 clean
-	$(RM) $(NAME)
-
+all:		$(NAME)
 clean:
 	$(RM) $(OBJECTS)
+fclean:		clean
+	$(RM)	$(NAME)
+re:			fclean all
 
-re:		 fclean all
+$(NAME):	$(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $@	$^
 
-.PHONY: all clean fclean re
-.SECONDARY: $(OBJECTS)
+.PHONY:	all clean fclean re
+.SECONDARY:	$(OBJECTS)
