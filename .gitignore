@@ -20,6 +20,8 @@
 04/ex02/Abstract
 05/*/bin
 **/subject.en.pdf
-**/old/
+**/correction.png
 **/*.o
+**/*.d
+**/.old
 **/tags

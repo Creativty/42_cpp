@@ -5,28 +5,33 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aindjare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/22 16:08:33 by aindjare          #+#    #+#              #
-#    Updated: 2025/06/22 16:16:40 by aindjare         ###   ########.fr        #
+#    Created: 2025/07/07 09:35:00 by aindjare          #+#    #+#              #
+#    Updated: 2025/07/07 09:43:00 by aindjare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC			:=	c++
-CXX			:=	c++
-CXXFLAGS	:=	-std=c++98 -Wall -Wextra -Wconversion -Werror -g
-
 NAME		:=	bin
-SOURCES		:=	$(wildcard *.cpp)
-OBJECTS		:=	$(SOURCES:.cpp=.o)
+SRCS		:=	$(wildcard *.cpp)
+OBJS		:=	$(SRCS:.cpp=.o)
+DEPS		:=	$(OBJS:.o=.d)
 
-all:		$(NAME)
+CXX			:=	c++
+CXXFLAGS	:=	-Wall -Wextra -Werror -Wconversion -std=c++98 -g -MMD -MP
+
+all: $(NAME)
+
 clean:
-	$(RM) $(OBJECTS)
-fclean:		clean
-	$(RM)	$(NAME)
-re:			fclean all
+	$(RM) $(OBJS) $(DEPS)
 
-$(NAME):	$(OBJECTS)
-	$(CXX) $(CXXFLAGS) -o $@	$^
+fclean: clean
+	$(RM) $(NAME)
 
-.PHONY:	all clean fclean re
-.SECONDARY:	$(OBJECTS)
+re: fclean all
+
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+-include $(DEPS)
+
+.PHONY: all clean fclean re
+.SECONDARY: $(OBJS) $(DEPS)

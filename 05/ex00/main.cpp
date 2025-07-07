@@ -5,75 +5,68 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/22 16:13:04 by aindjare          #+#    #+#             */
-/*   Updated: 2025/06/22 17:24:48 by aindjare         ###   ########.fr       */
+/*   Created: 2025/07/07 09:42:22 by aindjare          #+#    #+#             */
+/*   Updated: 2025/07/07 10:37:07 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <exception>
 #include "Bureaucrat.hpp"
 
-void	test_case_constructor(std::string name, unsigned int grade, const char *validity) {
-	try {
-		std::cout << "Constructing	Bureaucrat { \"" << name << "\", " << grade << " }\t:: got ";
-		Bureaucrat	instance(name, grade);
-		std::cout << "valid " << instance;
-	} catch (std::exception& e) {
-		std::cout << "invalid (" << e.what() << ")";
+enum Output {
+	OUTPUT_SUCCESS,
+	OUTPUT_GRADE_HIGH,
+	OUTPUT_GRADE_LOW,
+};
+
+std::ostream&	operator<<(std::ostream& stream, const enum Output& output) {
+	switch (output) {
+	case OUTPUT_SUCCESS:
+		return (stream << "success");
+	case OUTPUT_GRADE_HIGH:
+		return (stream << "grade too high exception");
+	case OUTPUT_GRADE_LOW:
+		return (stream << "grade too low exception");
 	}
-	std::cout << ", while expecting " << validity << std::endl;
+	return (stream);
 }
 
-void	test_case_operation(std::string name, unsigned int grade, const char *validity, bool is_increment) {
+void	test(const std::string &name, unsigned int grade, enum Output output = OUTPUT_SUCCESS, int delta = 0) {
+	enum Output	_output;
 	try {
 		Bureaucrat	instance(name, grade);
 
-		if (is_increment)	std::cout << "Demoting  +1	";
-		else				std::cout << "Promoting -1	";
-		std::cout << "Bureaucrat { \"" << name << "\", " << grade << " }\t:: got ";
+		_output = OUTPUT_SUCCESS;
+		while (delta < 0) {
+			instance.demote();
+			delta++;
+		}
+		while (delta > 0) {
+			instance.promote();
+			delta--;
+		}
+		std::cout << instance << std::endl;
+	} catch (std::exception& error) {
+		std::cout << error.what() << std::endl;
 
-		if (is_increment)	instance.demoteGrade();
-		else				instance.promoteGrade();
-		std::cout << "valid " << instance;
-	} catch (std::exception& e) {
-		std::cout << "invalid (" << e.what() << ")";
+		Bureaucrat::GradeTooHighException *high = dynamic_cast<Bureaucrat::GradeTooHighException*>(&error);
+		Bureaucrat::GradeTooLowException *low = dynamic_cast<Bureaucrat::GradeTooLowException*>(&error);
+		if (low != NULL)
+			_output = OUTPUT_GRADE_LOW;
+		if (high != NULL)
+			_output = OUTPUT_GRADE_HIGH;
 	}
-	std::cout << ", while expecting " << validity << std::endl;
+	if (output != _output)
+		std::cerr << "Test case failed: Expecting " << output << ", got " << _output << std::endl;
 }
 
-int	main(void) {
-	test_case_constructor("Jake", 1, "valid");
-	test_case_operation("Jake", 1, "valid", true);
-	test_case_operation("Jake", 2, "valid", false);
-	test_case_operation("Jake", 1, "invalid (Grade too high)", false);
-	std::cout << std::endl;
-
-	test_case_constructor("John", 0, "invalid (Grade too high)");
-	std::cout << std::endl;
-
-	test_case_constructor("Jane", 149, "valid");
-	test_case_operation("Jane", 149, "valid", true);
-	std::cout << std::endl;
-
-	test_case_constructor("Johnson", 150, "valid");
-	test_case_operation("Johnson", 150, "invalid (Grade too low)", true);
-	std::cout << std::endl;
-
-	test_case_constructor("Jenny", 200, "invalid (Grade too low)");
-	std::cout << std::endl;
-
-	Bureaucrat	a("Joe", 23);
-
-	Bureaucrat	b(a);
-	b.demoteGrade();
-
-	Bureaucrat	c = a;
-	c.promoteGrade();
-
-	std::cout << "Bureaucrat a = " << a << std::endl;
-	std::cout << "Bureaucrat b = " << b << std::endl;
-	std::cout << "Bureaucrat c = " << c << std::endl;
-
+int		main(void) {
+	test("Boss", 1);
+	test("Oligarchy", 0, OUTPUT_GRADE_HIGH);
+	test("Boss to Oligarchy", 1, OUTPUT_GRADE_HIGH, 1);
+	test("Intern", 150);
+	test("Joe (Guy outside)", 160, OUTPUT_GRADE_LOW);
+	test("Intern to Jobless", 149, OUTPUT_GRADE_LOW, -3);
+	test("James (Staff)", 19);
 	return (0);
 }
