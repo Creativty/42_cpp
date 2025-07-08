@@ -6,16 +6,18 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 09:43:11 by aindjare          #+#    #+#             */
-/*   Updated: 2025/07/07 10:54:21 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/07/08 15:55:10 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef   Bureaucrat_HPP
 #define   Bureaucrat_HPP
+#include  "AForm.hpp"
 #include  <string>
 #include  <ostream>
 #include  <exception>
 
+class AForm;
 class Bureaucrat {
 private:
 	const std::string	name;
@@ -30,6 +32,9 @@ public:
 	void				promote(void);
 	const std::string&	getName(void) const;
 	unsigned int		getGrade(void) const;
+
+	void				signForm(AForm& form) const;
+	void				executeForm(AForm const& form) const;
 
 	class GradeTooHighException: public std::exception {
 	public:
