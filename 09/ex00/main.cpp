@@ -6,7 +6,7 @@
 /*   By: xenobas <rahimos.123@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:03:58 by xenobas           #+#    #+#             */
-/*   Updated: 2025/11/05 15:46:27 by xenobas          ###   ########.fr       */
+/*   Updated: 2025/11/05 16:32:23 by xenobas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #define RET_ERR_VALIDATION	4
 #define RET_ERR_CSV			8
 
-#include <vector>
+#include <list>
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -153,24 +153,29 @@ struct CSV_Entry {
 	int			days;
 };
 
-double	csv_find_rate(const std::vector<CSV_Entry>& csv, const Date& date) {
+typedef std::list<CSV_Entry>::const_iterator CSV_iterator;
+
+double	csv_find_rate(const std::list<CSV_Entry>& csv, const Date& date) {
 	int	days = date_days(date);
-	for (size_t i = 0; i < csv.size(); ++i) {
-		const CSV_Entry&	entry = csv[i];
-		if (entry.days >= days) {
-			return (entry.rate);
+
+	CSV_iterator lower_bound = csv.end();
+	for (CSV_iterator iter = csv.begin(); iter != csv.end(); ++iter) { /* As naive as it gets */
+		const CSV_Entry&	entry = *iter;
+		if (entry.days > days) {
+			break ;
 		}
+		lower_bound = iter;
 	}
-	return (0.0);
+	return (lower_bound == csv.end() ? 0.0 : lower_bound->rate);
 }
 
-int	main(int argc, const char** argv) {
+int		main(int argc, const char** argv) {
 	if (argc != 2) {
 		std::cerr << "usage: " << argv[0] << " <file>" << std::endl;
 		return (RET_ERR_ARGC);
 	}
 
-	std::vector<CSV_Entry>	vec_csv;
+	std::list<CSV_Entry>	vec_csv;
 
 	const char*				path_csv = "data.csv";
 	std::ifstream			file_csv(path_csv);
