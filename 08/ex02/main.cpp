@@ -13,19 +13,19 @@
 #include <iostream>
 
 #include <stack>
-#if 1
+#define DS_STACK
+#ifdef DS_STACK
 #include "MutantStack.hpp"
 #define DS MutantStack<int>
 #define DS_PUSH(X, Y) (X).push((Y))
 #define DS_POP(X) (X).pop()
 #define DS_TOP(X) (X).top()
-#define DS_STACK
 #else
 #include <list>
 #define DS std::list<int>
 #define DS_PUSH(X, Y) (X).push_back((Y))
 #define DS_POP(X) (X).pop_back()
-#define DS_TOP(X) (X).front()
+#define DS_TOP(X) (X).back()
 #endif
 
 int	main(void) {
