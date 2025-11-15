@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 10:25:47 by aindjare          #+#    #+#             */
-/*   Updated: 2025/11/01 10:42:31 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/11/15 13:14:34 by xenobas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ private:
 
 public:
 	Array(void): elements(0), len(0) { };
-	Array(unsigned int n): elements(new T[n]()), len((size_t)n) { };
 	Array(const Array& arr) {
 		this->elements = 0;
 		this->len = 0;
@@ -52,6 +51,8 @@ public:
 		this->elements = 0;
 		this->len = 0;
 	};
+
+	Array(unsigned int n): elements(new T[n]()), len((size_t)n) { };
 
 	size_t	size(void) const {
 		return (this->len);
