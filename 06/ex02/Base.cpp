@@ -6,7 +6,7 @@
 /*   By: xenobas <rahimos.123@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 12:51:01 by xenobas           #+#    #+#             */
-/*   Updated: 2025/11/15 13:06:18 by xenobas          ###   ########.fr       */
+/*   Updated: 2025/11/16 13:13:21 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,19 @@ void	identify(Base* p) {
 }
 void	identify(Base& p) {
 	try {
-		dynamic_cast<A&>(p);
+		(void)dynamic_cast<A&>(p);
 		std::cout << static_cast<void*>(&p) << " is an A instance" << std::endl;
 		return ;
 	} catch (std::exception& err) { }
 
 	try {
-		dynamic_cast<B&>(p);
+		(void)dynamic_cast<B&>(p);
 		std::cout << static_cast<void*>(&p) << " is an B instance" << std::endl;
 		return ;
 	} catch (std::exception& err) { }
 
 	try {
-		dynamic_cast<C&>(p);
+		(void)dynamic_cast<C&>(p);
 		std::cout << static_cast<void*>(&p) << " is an C instance" << std::endl;
 		return ;
 	} catch (std::exception& err) { }
