@@ -6,7 +6,7 @@
 #    By: aindjare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/07 09:35:00 by aindjare          #+#    #+#              #
-#    Updated: 2025/11/02 11:30:54 by aindjare         ###   ########.fr        #
+#    Updated: 2025/07/07 09:43:00 by aindjare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ SRCS		:=	$(wildcard *.cpp)
 OBJS		:=	$(SRCS:.cpp=.o)
 DEPS		:=	$(OBJS:.o=.d)
 
-CXX			:=	g++
-CXXFLAGS	:=	-Wall -Wextra -Werror -Wconversion -std=c++98 -ggdb -MMD -MP
+CXX			:=	c++
+CXXFLAGS	:=	-Wall -Wextra -Werror -Wconversion -std=c++98 -g -MMD -MP
 
 all: $(NAME)
 

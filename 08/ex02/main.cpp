@@ -6,26 +6,26 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 14:07:35 by aindjare          #+#    #+#             */
-/*   Updated: 2025/11/02 16:33:22 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/11/25 15:29:10 by xenobas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
 #include <stack>
-#define DS_STACK
+// #define DS_STACK
 #ifdef DS_STACK
-#include "MutantStack.hpp"
-#define DS MutantStack<int>
-#define DS_PUSH(X, Y) (X).push((Y))
-#define DS_POP(X) (X).pop()
-#define DS_TOP(X) (X).top()
+	#include "MutantStack.hpp"
+	#define DS MutantStack<int>
+	#define DS_PUSH(X, Y) (X).push((Y))
+	#define DS_POP(X) (X).pop()
+	#define DS_TOP(X) (X).top()
 #else
-#include <list>
-#define DS std::list<int>
-#define DS_PUSH(X, Y) (X).push_back((Y))
-#define DS_POP(X) (X).pop_back()
-#define DS_TOP(X) (X).back()
+	#include <list>
+	#define DS std::list<int>
+	#define DS_PUSH(X, Y) (X).push_back((Y))
+	#define DS_POP(X) (X).pop_back()
+	#define DS_TOP(X) (X).back()
 #endif
 
 int	main(void) {
@@ -52,6 +52,7 @@ int	main(void) {
 		std::cout << *it << std::endl;
 		++it;
 	}
+
 	#ifdef DS_STACK
 	std::stack<int> s(mstack);
 	#endif

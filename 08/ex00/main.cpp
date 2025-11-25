@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 10:13:55 by aindjare          #+#    #+#             */
-/*   Updated: 2025/11/01 11:18:17 by aindjare         ###   ########.fr       */
+/*   Updated: 2025/11/17 13:33:37 by xenobas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, const char** argv) {
 	std::vector<int>	vec;
 
 	if (argc != 2) {
-		std::cerr << "usage: " << argv[0] << " <number>" << std::endl;
+		std::cerr << "usage: " << argv[0] << " <lottery_number>" << std::endl;
 		return (2);
 	}
 
